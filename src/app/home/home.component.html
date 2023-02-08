@@ -2,27 +2,27 @@
 <div class="mx-5 mt-5">
     <div><p>¿Qué quieres hacer?</p></div>
 
-    <form presupuestoForm="ngForm">
+    <form [formGroup]="budgetForm">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="500" id="flexCheckDefault" name="web" >
+            <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="web" value="500" formControlName="web"  (change)="updatePrice('web')">
             <label class="form-check-label" for="flexCheckDefault">
             Una página web (500€)
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="300" id="flexCheckChecked" name="seo" >
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="seo" value="300" formControlName="seo"  (change)="updatePrice('seo')">
+            <label class="form-check-label" for="flexCheckChecked">
             Una consultoría SEO (300€)
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="200" id="flexCheckChecked" name="google" >
+            <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="google" value="200" formControlName="google"  (change)="updatePrice('google')">
             <label class="form-check-label" for="flexCheckDefault">
             Una campaña de Google Ads (200€)
             </label>
         </div>
     </form>
     <div>
-        <p>Precio: 800€</p> 
+        <p>Precio: {{price}}€</p> 
     </div>
 </div>
