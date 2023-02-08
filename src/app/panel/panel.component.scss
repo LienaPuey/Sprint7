@@ -1,0 +1,21 @@
+.panel{
+    max-width: 20%;
+    border: solid black 3px;
+    border-radius: 7%;
+    padding: 2rem;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+.boton{
+    background-color: rgb(247, 118, 32);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+}

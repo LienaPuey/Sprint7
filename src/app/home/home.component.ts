@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ServicioService } from '../servicio.service';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,21 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  constructor(private servicio: ServicioService){
 
+  }
   budgetForm = new FormGroup({
     web : new FormControl(false),
     seo: new FormControl(false),
     google: new FormControl(false)
   }); 
 
-  webPrice = 500;
-  seoPrice = 300;
-  googlePrice = 200;
+  isOn:boolean = false;
+  webPrice : number = 500;
+  seoPrice : number = 300;
+  googlePrice : number = 200;
   price:number = 0;
+
   get webValue(){
     return this.budgetForm.get('web')?.value ? this.webPrice : 0;
   }
@@ -34,7 +39,5 @@ export class HomeComponent {
     this.price = this.webValue + this.seoValue + this.googleValue;
   }
 
-  constructor(){
 
-  }
 }

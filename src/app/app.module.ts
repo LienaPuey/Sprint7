@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PanelComponent } from './panel/panel.component';
+import { ServicioService } from './servicio.service';
 
 
 const routes: Routes = [
@@ -18,7 +20,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    ServicioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

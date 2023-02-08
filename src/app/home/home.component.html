@@ -4,10 +4,11 @@
 
     <form [formGroup]="budgetForm">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="web" value="500" formControlName="web"  (change)="updatePrice('web')">
+            <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="web" value="500" formControlName="web"  (change)="updatePrice('web')" [(ngModel)]="isOn">
             <label class="form-check-label" for="flexCheckDefault">
             Una página web (500€)
             </label>
+            <app-panel *ngIf="isOn"></app-panel>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="seo" value="300" formControlName="seo"  (change)="updatePrice('seo')">

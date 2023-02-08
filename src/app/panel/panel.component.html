@@ -1,0 +1,16 @@
+<div class="d-flex flex-column my-3 panel">
+    <form [formGroup]="formPanel">
+        <div class="input-group mb-3 align-items-center">
+            <label for="paginas" class="me-3" >Número de páginas</label>
+            <button class="btn boton rounded-start" type="button" (click)="incrementPages()">+</button>
+            <input type="number" class="form-control" min="0" formControlName="pages" >
+            <button class="btn boton" type="button" (click)="decrementPages()">-</button>
+        </div>
+        <div class="input-group align-items-center">
+        <label for="paginas" class="me-3" >Número de idiomas</label>
+            <button class="btn boton rounded-start" type="button">+</button>
+            <input type="number" class="form-control" min="0" formControlName="languages" >
+            <button class="btn boton" type="button">-</button>
+        </div>  
+    </form>
+</div>
