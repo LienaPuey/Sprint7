@@ -34,7 +34,7 @@ get languagesValue(){
 updatePrice(){
   let webPrice:number = this.pagesValue * this.languagesValue * 30;
    console.log(webPrice);
-   this.servicio.throwBudget.emit(webPrice);
+   this.servicio.throwBudget.next(webPrice);
  }
 increasePage(){
  let value= this.formPanel.patchValue({ pages: this.pagesValue + 1 });
