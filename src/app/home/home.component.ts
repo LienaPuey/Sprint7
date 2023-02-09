@@ -8,9 +8,10 @@ import { FormGroup, FormControl } from '@angular/forms';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   ngOnInit(){ 
     this.servicio.throwBudget.subscribe(dataPrice=>{
+      this.updatePrice()
       this.webLangPagePrice = dataPrice;
     });
   }
@@ -41,7 +42,7 @@ export class HomeComponent {
     return this.budgetForm.get('google')?.value ? this.googlePrice : 0;
   }
 
-  updatePrice(checkbox: string){
+  updatePrice(){
     this.price = this.webValue + this.seoValue + this.googleValue;
     if(this.webValue){
       this.price = this.webValue + this.webLangPagePrice + this.seoValue + this.googleValue;

@@ -3,14 +3,14 @@
         <div class="input-group mb-3 align-items-center">
             <label for="paginas" class="me-3" >Número de páginas</label>
             <button class="btn boton rounded" type="button" (click)="increasePage()" >+</button>
-            <input type="number" class="form-control" min="1" formControlName="pages" (change)="updatePrice('pages')">
+            <input type="number" class="form-control" min="1" formControlName="pages" (change)="updatePrice()">
             <button class="btn boton rounded" type="button" (click)="decreasePage()">-</button>
         </div>
         <div class="input-group align-items-center">
         <label for="paginas" class="me-3" >Número de idiomas</label>
-            <button class="btn boton rounded" type="button" >+</button>
-            <input type="number" class="form-control" min="1" formControlName="languages" (change)="updatePrice('languages')" >
-            <button class="btn boton rounded" type="button" >-</button>
+            <button class="btn boton rounded" type="button" (click)="increaseLanguage()">+</button>
+            <input type="number" class="form-control" min="1" formControlName="languages" (change)="updatePrice()" >
+            <button class="btn boton rounded" type="button" (click)="decreaseLanguage()">-</button>
         </div>  
     </form>
 </div>

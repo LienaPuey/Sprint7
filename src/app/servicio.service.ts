@@ -5,7 +5,7 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 })
 export class ServicioService {
 @Output() throwBudget: EventEmitter<any>= new EventEmitter();
-  constructor() { }
+  constructor() {}
 
 
 
