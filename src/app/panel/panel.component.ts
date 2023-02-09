@@ -22,17 +22,26 @@ formPanel:FormGroup=new FormGroup({
     Validators.min(1)
   ])
 });
-pagesValue:number = this.formPanel.get('pages')?.value;
-languagesValue:number = this.formPanel.get('languages')?.value;
-incrementPages(){
-  this.pagesValue++;
+get pagesValue(){
+  return this.formPanel.get('pages')?.value;
 }
-decrementPages(){
-  this.pagesValue--;
+get languagesValue(){
+  return this.formPanel.get('languages')?.value;
 }
 
+increasePage(){
+ 
+}
+decreasePage(){
 
-webPriceTotal:number = this.pagesValue * this.languagesValue * 30;
+}
+
+updatePrice(value: any){
+ let webPrice:number = this.pagesValue * this.languagesValue * 30;
+  console.log(webPrice);
+  this.servicio.throwBudget.emit(webPrice);
+}
+
 
 
 

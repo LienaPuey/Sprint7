@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { ServicioService } from './../servicio.service';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ServicioService } from '../servicio.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,11 @@ import { ServicioService } from '../servicio.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  ngOnInit(){ 
+    this.servicio.throwBudget.subscribe(dataPrice=>{
+      this.webLangPagePrice = dataPrice;
+    });
+  }
   constructor(private servicio: ServicioService){
 
   }
@@ -16,7 +22,7 @@ export class HomeComponent {
     seo: new FormControl(false),
     google: new FormControl(false)
   }); 
-
+  webLangPagePrice:number=0;
   isOn:boolean = false;
   webPrice : number = 500;
   seoPrice : number = 300;
@@ -37,6 +43,11 @@ export class HomeComponent {
 
   updatePrice(checkbox: string){
     this.price = this.webValue + this.seoValue + this.googleValue;
+    if(this.webValue){
+      this.price = this.webValue + this.webLangPagePrice + this.seoValue + this.googleValue;
+    }
+    console.log(this.price);
+    
   }
 
 
