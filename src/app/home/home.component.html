@@ -2,13 +2,17 @@
 <div class="mx-5 mt-5">
     <div><p>¿Qué quieres hacer?</p></div>
 
-    <form [formGroup]="budgetForm">
+    <form [formGroup]="budgetForm" class="d-flex flex-column">
+        <div class="mb-3 d-flex flex-column inputsPresupuesto">
+            <input type="text" class="form-control mb-2" placeholder="Nombre de cliente" aria-label="Nombre de cliente" formControlName="client">
+            <input type="text" class="form-control" placeholder="Nombre del presupuesto" aria-label="Nombre del presupuesto" formControlName="budget">
+          </div>
         <div class="form-check">
             <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="web" value="500" formControlName="web"  (change)="updatePrice()" [(ngModel)]="isOn">
             <label class="form-check-label" for="flexCheckDefault">
             Una página web (500€)
             </label>
-            <app-panel *ngIf="isOn"></app-panel>
+            <app-panel *ngIf="isOn" class="appearAnimation"></app-panel>
         </div>
         <div class="form-check">
             <input class="form-check-input" type="checkbox" id="flexCheckChecked" name="seo" value="300" formControlName="seo"  (change)="updatePrice()">
@@ -27,8 +31,13 @@
         <p>Precio: {{price}}€</p> 
     </div>
     <div>
-        <button class="btn boton" (click)="goBack()">Volver</button>
+        <button class="btn boton me-3" (click)="goBack()">Volver</button>
+        <button class="btn boton" (click)="saveBudget()">Guardar</button>
     </div>
+</div>
+
+<div>
+    <app-budget-list *ngIf="showBudgetList"></app-budget-list>
 </div>
 
 

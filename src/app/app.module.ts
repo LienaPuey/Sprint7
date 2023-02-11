@@ -11,6 +11,7 @@ import { PanelComponent } from './panel/panel.component';
 import { ServicioService } from './servicio.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BudgetListComponent } from './budget-list/budget-list.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
     HomeComponent,
     PanelComponent,
     WelcomeComponent,
+    BudgetListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+<div *ngFor="let budget of budgetDataList">
+    <p>Cliente: {{ budget.client }}</p>
+    <p>Budget: {{ budget.budget }}</p>
+
+
+    <div *ngIf="budget.web">Página web </div>
+    <div *ngIf="budget.seo">Consultoría SEO (300€)</div>
+    <div *ngIf="budget.google">Campaña de Google Ads (200€)</div>
+    <p>Precio total: {{ budget.price }}€</p>
+  </div>
+  
