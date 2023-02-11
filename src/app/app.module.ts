@@ -12,6 +12,7 @@ import { ServicioService } from './servicio.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BudgetListComponent } from './budget-list/budget-list.component';
+import { FilterPipe } from './filter.pipe';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
     PanelComponent,
     WelcomeComponent,
     BudgetListComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

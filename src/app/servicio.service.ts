@@ -39,6 +39,12 @@ sortByName(){
   })
 }
 
+resetByDate(){
+  this.budgetDataList.sort((a,b)=>{
+    return a.date.getTime() - b.date.getTime();
+  })
+}
+
 }
 
 

@@ -1,7 +1,15 @@
+
 <button class="boton btn mb-3 me-3" (click)="filterByDate()">Ordenar por fecha</button>
 <button class="boton btn mb-3 me-3" (click)="filterByName()">Ordenar por orden alfabético</button>
 <button class="boton btn mb-3 me-3" (click)="resetOrder()">Volver al orden inicial</button>
-
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input [(ngModel)]="filterBudget" name="filterBudget" class="form-control me-2" type="search" placeholder="Buscar presupuesto" aria-label="Buscar">
+      <button class="btn boton" type="submit">Buscar</button>
+    </form>
+  </div>
+</nav>
 <table class="table tablaPresupuestos">
     <thead>
       <tr>
@@ -12,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let budget of budgetDataList">
+      <tr *ngFor="let budget of budgetDataList | filter:filterBudget">
         <td>{{ budget.client }}</td>
         <td>{{ budget.budget }}</td>
         <td>
