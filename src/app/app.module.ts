@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PanelComponent } from './panel/panel.component';
 import { ServicioService } from './servicio.service';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { ModalComponent } from './modal/modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [
@@ -28,13 +28,13 @@ const routes: Routes = [
     HomeComponent,
     PanelComponent,
     WelcomeComponent,
-    ModalComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   exports: [
     RouterModule

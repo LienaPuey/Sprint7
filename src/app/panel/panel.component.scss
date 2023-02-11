@@ -1,5 +1,5 @@
 .panel{
-    max-width: 20%;
+    max-width: 25%;
     border: solid black 3px;
     border-radius: 7%;
     padding: 2rem;
@@ -25,4 +25,12 @@ input{
 textarea:focus, input:focus{
   border: 3px solid black;
   border-radius: 10px !important;
+}
+
+.infobtn {
+  cursor:pointer;
+}
+
+.modalBtn {
+  padding: 2rem;
 }

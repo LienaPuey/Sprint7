@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ServicioService } from '../servicio.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-panel',
@@ -12,7 +13,8 @@ export class PanelComponent {
 webPrice = 0;
 constructor(
   private servicio:ServicioService,
-  private fb: FormBuilder
+  private fb: FormBuilder,
+  private modalService: NgbModal
   ){
     this.formPanel= this.fb.group({
       pages: [1,[
@@ -75,5 +77,13 @@ this.formPanel.valueChanges.subscribe(()=> {
     }
   }
 
+//MODAL
 
+seePages(modal:any){
+  this.modalService.open(modal, {centered:true});
+}
+
+seeLanguages(modal:any){
+  this.modalService.open(modal, {centered:true});
+}
 }
