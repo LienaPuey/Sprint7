@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PanelComponent } from './panel/panel.component';
 import { ServicioService } from './servicio.service';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     PanelComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
