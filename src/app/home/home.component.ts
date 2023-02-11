@@ -9,7 +9,9 @@ export interface budgetData {
   web:boolean,
   seo: boolean,
   google: boolean,
-  price: number
+  totalPrice: number,
+  webPrice: number,
+  date: Date
 }
 @Component({
   selector: 'app-home',
@@ -43,9 +45,17 @@ export class HomeComponent implements OnInit {
       web : [false],
       seo:[false],
       google:[false]
-    }); 
+    }, { validator: this.checkAtLeastOneSelected }); 
 
   }
+  checkAtLeastOneSelected(group: FormGroup) {
+    const google = group.get('google')?.value;
+    const web = group.get('web')?.value;
+    const seo = group.get('seo')?.value;
+  
+    return (google || web || seo) ? null : { checkAtLeastOneSelected: true };
+  }
+
 
   get webValue(){
     return this.budgetForm.get('web')?.value ? this.webPrice : 0;
@@ -73,11 +83,18 @@ export class HomeComponent implements OnInit {
   }
 
   saveBudget(){
+    if (this.budgetForm.invalid) {
+      return;
+    }
     let values: budgetData = this.budgetForm.value;
-    values.price = this.price;
+    values.totalPrice = this.price;
+    values.webPrice = this.webValue + this.webLangPagePrice;
     this.servicio.addBudgetData(values);
+    values.date = new Date();
     this.showBudgetList = true;
     console.log(values);
+    this.budgetForm.reset();
+    this.price= 0;
   }
 
 }

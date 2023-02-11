@@ -1,11 +1,27 @@
-<div *ngFor="let budget of budgetDataList">
-    <p>Cliente: {{ budget.client }}</p>
-    <p>Budget: {{ budget.budget }}</p>
+<button class="boton btn mb-3 me-3" (click)="filterByDate()">Ordenar por fecha</button>
+<button class="boton btn mb-3 me-3" (click)="filterByName()">Ordenar por orden alfabético</button>
+<button class="boton btn mb-3 me-3" (click)="resetOrder()">Volver al orden inicial</button>
 
-
-    <div *ngIf="budget.web">Página web </div>
-    <div *ngIf="budget.seo">Consultoría SEO (300€)</div>
-    <div *ngIf="budget.google">Campaña de Google Ads (200€)</div>
-    <p>Precio total: {{ budget.price }}€</p>
-  </div>
+<table class="table tablaPresupuestos">
+    <thead>
+      <tr>
+        <th scope="col">Cliente</th>
+        <th scope="col">Presupuesto</th>
+        <th scope="col">Servicios</th>
+        <th scope="col">Precio total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let budget of budgetDataList">
+        <td>{{ budget.client }}</td>
+        <td>{{ budget.budget }}</td>
+        <td>
+          <div *ngIf="budget.web">Página web ({{budget.webPrice}}€)</div>
+          <div *ngIf="budget.seo">Consultoría SEO (300€)</div>
+          <div *ngIf="budget.google">Campaña de Google Ads (200€)</div>
+        </td>
+        <td>{{ budget.totalPrice }}€</td>
+      </tr>
+    </tbody>
+  </table>
   

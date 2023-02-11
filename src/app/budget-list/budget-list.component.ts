@@ -10,12 +10,22 @@ import { ServicioService } from 'app/servicio.service';
 
 export class BudgetListComponent {
   budgetDataList : budgetData[];
+  budgetReset: budgetData[];
   constructor(private servicio: ServicioService){
     this.budgetDataList = this.servicio.getBudgetData();
+    this.budgetReset = this.budgetDataList;
     console.log('Este es el list', this.budgetDataList);
   }
 
-  showList(){
-    
+  filterByDate(){
+    this.servicio.sortByDate();
+  }
+
+  filterByName(){
+    this.servicio.sortByName();
+  }
+
+  resetOrder(){
+     this.budgetDataList = this.budgetReset;
   }
 }
