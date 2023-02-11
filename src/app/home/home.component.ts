@@ -1,6 +1,7 @@
 import { ServicioService } from './../servicio.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,11 +12,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class HomeComponent implements OnInit {
   ngOnInit(){ 
     this.servicio.throwBudget.subscribe(dataPrice=>{
-      this.updatePrice()
       this.webLangPagePrice = dataPrice;
+      this.updatePrice()
+
     });
   }
-  constructor(private servicio: ServicioService){
+  constructor(private servicio: ServicioService, private router: Router){
 
   }
   budgetForm = new FormGroup({
@@ -23,7 +25,7 @@ export class HomeComponent implements OnInit {
     seo: new FormControl(false),
     google: new FormControl(false)
   }); 
-  webLangPagePrice:number=0;
+  webLangPagePrice:number=30;
   isOn:boolean = false;
   webPrice : number = 500;
   seoPrice : number = 300;
@@ -49,6 +51,10 @@ export class HomeComponent implements OnInit {
     }
     console.log(this.price);
     
+  }
+
+  goBack():void {
+    this.router.navigate(['/welcome']);
   }
 
 

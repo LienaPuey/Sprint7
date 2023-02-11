@@ -9,10 +9,14 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PanelComponent } from './panel/panel.component';
 import { ServicioService } from './servicio.service';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 const routes: Routes = [
-  {path:'', component: HomeComponent}
+  {path:'', component: WelcomeComponent},
+  {path:'welcome', component : WelcomeComponent},
+  {path: 'home', component: HomeComponent}
+  
 ]
 
 
@@ -21,13 +25,17 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    PanelComponent
+    PanelComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     FormsModule
+  ],
+  exports: [
+    RouterModule
   ],
   providers: [
     ServicioService
