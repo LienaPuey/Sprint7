@@ -18,7 +18,7 @@ export class BudgetListComponent implements OnInit {
   constructor(private servicio: ServicioService){
     this.budgetDataList = this.servicio.getBudgetData();
     this.budgetReset = this.budgetDataList;
-    console.log('Este es el list', this.budgetDataList);
+    console.log(this.budgetDataList);
   }
 
   filterByDate(){
@@ -33,5 +33,7 @@ export class BudgetListComponent implements OnInit {
     this.servicio.resetByDate();
   }
 
-
+  // searchFilter(event:any){
+  //   this.filterBudget = event.target.value;
+  // }
 }

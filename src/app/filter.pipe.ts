@@ -5,17 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, arg: any): any {
-    console.log(value, arg, 'holahola');
-    const resultBudget = [];
-
-    for(let result of value ){
-      if(result.budget.toLowerCase().indexOf(arg.toLowerCase()) > -1){
-        resultBudget.push(result);
-      }
+  transform(value: any, texto: string): any {
+    console.log(value, texto, 'holahola');
+    if (texto === ''){
+      return value;
     }
-    console.log('hola', resultBudget);
-    return resultBudget;
+    return value.filter( (item: any) => {
+      console.log(item);
+      return item.budget.toLowerCase().includes(texto.toLowerCase());
+    });
   }
 
 }

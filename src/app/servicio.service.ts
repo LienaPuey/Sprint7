@@ -11,7 +11,7 @@ constructor() { }
 
 addBudgetData(data: budgetData) {
   this.budgetDataList.push(data);
-  console.log(this.budgetDataList);
+  console.log('listado',this.budgetDataList);
 }
 
 getBudgetData() {

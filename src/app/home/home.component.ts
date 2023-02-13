@@ -74,7 +74,6 @@ export class HomeComponent implements OnInit {
     if(this.webValue){
       this.price = this.webValue + this.webLangPagePrice + this.seoValue + this.googleValue;
     }
-    console.log(this.price);
     
   }
 
@@ -92,7 +91,6 @@ export class HomeComponent implements OnInit {
     this.servicio.addBudgetData(values);
     values.date = new Date();
     this.showBudgetList = true;
-    console.log(values);
     this.budgetForm.reset();
     this.price= 0;
   }
