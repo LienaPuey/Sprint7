@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngIf="presupuestoActual">
         <td>{{ presupuestoActual.client }}</td>
         <td>{{ presupuestoActual.budget }}</td>
         <td>

@@ -37,7 +37,6 @@ export class BudgetListComponent implements OnInit {
   }
 
   onSaveBudgetURL(budget : budgetData){
-    this.servicio.saveBudgetURL(budget, true);
     const params = this.route.snapshot.queryParams['data'];
     console.log(params);
     console.log('este es el budget',budget);
@@ -45,9 +44,12 @@ export class BudgetListComponent implements OnInit {
     const budgetDataParams = budgetObject.data;
     console.log('params',params, budgetDataParams);
 
-  }
-  viewBudgetDetail(id: number) {
-    this.router.navigate(['/presupuesto', id]);
+  }   
+
+  viewBudgetDetail(id: string) {
+    const budget = this.servicio.getPresupuestoPorId(id);
+    const budgetEncoded = btoa(JSON.stringify(budget));
+    this.router.navigate(['/presupuesto'],{queryParams: {budget: budgetEncoded}});
   }
 
 }

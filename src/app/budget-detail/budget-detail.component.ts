@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { budgetData } from 'app/home/home.component';
-import { ServicioService } from 'app/servicio.service';
+
 @Component({
   selector: 'app-budget-detail',
   templateUrl: './budget-detail.component.html',
@@ -10,15 +9,13 @@ import { ServicioService } from 'app/servicio.service';
 export class BudgetDetailComponent implements OnInit {
   presupuestoActual:any;
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      const id = params['id'];
-      const budget = this.servicio.getPresupuestoPorId(id);
-      console.log(budget);
-      this.presupuestoActual = budget;
-
+    this.route.queryParams.subscribe(params => {
+      const budgetDecoded = JSON.parse(atob(params['budget']));
+      this.presupuestoActual = budgetDecoded;
+      console.log({budgetDecoded});
     });
   }
 
-  constructor(private servicio: ServicioService, private route: ActivatedRoute, private router: Router){}
+  constructor( private route: ActivatedRoute){}
 
 }

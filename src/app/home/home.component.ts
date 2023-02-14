@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   seoPrice : number = 300;
   googlePrice : number = 200;
   price:number = 0;
-  showBudgetList = false;
+
 
 
   ngOnInit(){ 
@@ -91,9 +91,9 @@ export class HomeComponent implements OnInit {
     values.webPrice = this.webValue + this.webLangPagePrice;
     this.servicio.addBudgetData(values);
     values.date = new Date();
-    this.showBudgetList = true;
     this.budgetForm.reset();
     this.price= 0;
   }
 
+ 
 }

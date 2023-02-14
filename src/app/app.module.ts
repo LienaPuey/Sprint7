@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'', component: WelcomeComponent},
   {path:'welcome', component : WelcomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'presupuesto/:id', component:BudgetDetailComponent}
+  {path: 'presupuesto', component:BudgetDetailComponent}
   
 ]
 
