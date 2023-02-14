@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 export interface budgetData {
+  id: string,
   client: string,
   budget: string,
   web:boolean,

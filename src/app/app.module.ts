@@ -13,12 +13,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BudgetListComponent } from './budget-list/budget-list.component';
 import { FilterPipe } from './filter.pipe';
+import { BudgetDetailComponent } from './budget-detail/budget-detail.component';
 
 
 const routes: Routes = [
   {path:'', component: WelcomeComponent},
   {path:'welcome', component : WelcomeComponent},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'presupuesto/:id', component:BudgetDetailComponent}
   
 ]
 
@@ -32,6 +34,7 @@ const routes: Routes = [
     WelcomeComponent,
     BudgetListComponent,
     FilterPipe,
+    BudgetDetailComponent,
   ],
   imports: [
     BrowserModule,

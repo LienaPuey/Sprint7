@@ -1,15 +1,22 @@
 import { Subject } from 'rxjs';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { budgetData } from '../app/home/home.component';
+import { Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioService {
 throwBudget: Subject<number>= new Subject();
 budgetDataList : budgetData [] = [];  
-constructor() { }
+constructor(private router: Router) { }
 
 addBudgetData(data: budgetData) {
+  const newId = uuidv4();
+  data.id=newId;
+  this.saveBudgetURL([...this.budgetDataList, data]);
   this.budgetDataList.push(data);
   console.log('listado',this.budgetDataList);
 }
@@ -45,6 +52,18 @@ resetByDate(){
   })
 }
 
+saveBudgetURL(budgetDataList:any, navigate = false){
+  const params = encodeURIComponent(JSON.stringify(budgetDataList));
+  console.log('parametros1',params);
+  if (navigate) {
+    this.router.navigate(['/presupuesto'],{queryParams:{data:params}});
+  }
+}
+
+getPresupuestoPorId(id:string) {
+  return this.budgetDataList.find(presupuesto => presupuesto.id.toString() === id);
+  
+}
 }
 
 
