@@ -74,6 +74,9 @@ export class HomeComponent implements OnInit {
     this.price = this.webValue + this.seoValue + this.googleValue;
     if(this.webValue){
       this.price = this.webValue + this.webLangPagePrice + this.seoValue + this.googleValue;
+      console.log('webprice', this.webLangPagePrice);
+    }else{
+      this.webLangPagePrice=30;
     }
     console.log(this.price, 'precio');
   }
