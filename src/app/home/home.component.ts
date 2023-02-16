@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private servicio: ServicioService, private router: Router, private fb: FormBuilder){
     this.budgetForm = this.fb.group({
-      client: ['', Validators.required],
-      budget : ['', Validators.required],
+      client: ['', [Validators.required, this.customValidation]],
+      budget : ['', [Validators.required, this.customValidation]],
       web : [false],
       seo:[false],
       google:[false]
@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
     if(this.webValue){
       this.price = this.webValue + this.webLangPagePrice + this.seoValue + this.googleValue;
     }
-    
+    console.log(this.price, 'precio');
   }
 
   goBack():void {
@@ -95,5 +95,10 @@ export class HomeComponent implements OnInit {
     this.price= 0;
   }
 
- 
+ customValidation(control: FormControl){
+  if(control.value && control.value.trim().length === 0){
+    return {required:true, messager: 'El campo es requerido'}
+  }
+  return null;
+ }
 }

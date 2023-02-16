@@ -4,14 +4,14 @@
 
         <form [formGroup]="budgetForm" class="d-flex flex-column">
             <div class="mb-3 d-flex flex-column inputsPresupuesto">
-                <input type="text" class="form-control mb-2" placeholder="Nombre del cliente" aria-label="Nombre de cliente" formControlName="client" required>
-                <div *ngIf="budgetForm.invalid && (budgetForm.touched || budgetForm.dirty)" class="my-3 errorMsg">
-                    Debe introducir un cliente.
-                </div>
+                <input type="text" class="form-control mb-2" placeholder="Nombre del cliente" aria-label="Nombre de cliente" formControlName="client" [required]="true">
+                <div *ngIf="budgetForm.controls['client'].invalid && (budgetForm.controls['client'].dirty || budgetForm.controls['client'].touched)">
+                    <div *ngIf="budgetForm.controls['client'].errors?.['required']" class="my-3 errorMsg" >El nombre del cliente es obligatorio</div>
+                  </div>
                 <input type="text" class="form-control" placeholder="Nombre del presupuesto" aria-label="Nombre del presupuesto" formControlName="budget" required>
-            </div>
-            <div *ngIf="budgetForm.invalid && (budgetForm.touched || budgetForm.dirty)" class="my-3 errorMsg">
-                Debe introducir un nombre para el presupuesto.
+                <div *ngIf="budgetForm.controls['budget'].invalid && (budgetForm.controls['budget'].dirty || budgetForm.controls['budget'].touched)">
+                    <div *ngIf="budgetForm.controls['budget'].errors?.['required']" class="my-3 errorMsg" >El nombre del presupuesto es obligatorio</div>
+                  </div>
             </div>
 
             <div class="form-check">

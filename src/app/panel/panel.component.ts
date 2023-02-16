@@ -54,6 +54,7 @@ constructor(
 this.formPanel.valueChanges.subscribe(()=> {
   this.webPrice = this.formPanel.value.pages * this.formPanel.value.languages * 30;
   this.servicio.throwBudget.next(this.webPrice);
+  console.log(this.webPrice, 'este precio');
 });
 
   }
